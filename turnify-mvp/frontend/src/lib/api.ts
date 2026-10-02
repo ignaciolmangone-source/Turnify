@@ -1,0 +1,2 @@
+const API='http://localhost:4000/api';
+export async function api(path:string,options:RequestInit={}){const token=localStorage.getItem('token');const headers:any={'Content-Type':'application/json',...(options.headers||{})};if(token)headers.Authorization=`Bearer ${token}`;const r=await fetch(API+path,{...options,headers});const data=await r.json().catch(()=>null);if(!r.ok)throw new Error(data?.message||'Error');return data}
