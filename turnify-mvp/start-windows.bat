@@ -1,6 +1,7 @@
 @echo off
 cd /d %~dp0
 if not exist backend\.env copy backend\.env.example backend\.env
+if not exist frontend\.env copy frontend\.env.example frontend\.env
 echo 1. Asegurate de tener Docker Desktop abierto.
 echo 2. Ejecutando PostgreSQL...
 docker compose up -d
